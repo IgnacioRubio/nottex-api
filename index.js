@@ -1,11 +1,14 @@
 const application = require('./dist');
-require('dotenv').config();
+const varEnv = require('./env');
 
 module.exports = application;
 
-// const db_host = process.env.DB_HOST;
-// console.log('Host database: ', db_host);
-
+// check enviroment variables are not undefined
+if (varEnv.envUndefined().length > 0) {
+  varEnv.envUndefined().forEach(element => {
+    throw new Error(element);
+  });
+}
 
 if (require.main === module) {
   // Run the application
