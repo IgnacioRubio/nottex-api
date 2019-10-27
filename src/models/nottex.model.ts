@@ -1,6 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import { Entity, model, property } from '@loopback/repository';
 
-@model({settings: {}})
+@model({ settings: {} })
 export class Nottex extends Entity {
   @property({
     type: 'number',
@@ -31,7 +31,7 @@ export class Nottex extends Entity {
     type: 'date',
     required: true,
   })
-  dateCreated: string;
+  dateCreated: Date;
 
   constructor(data?: Partial<Nottex>) {
     super(data);
